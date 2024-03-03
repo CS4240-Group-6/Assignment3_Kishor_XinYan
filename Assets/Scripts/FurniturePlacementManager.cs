@@ -4,12 +4,15 @@ using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections.Generic;
+using TMPro;
+using System;
 
 public class FurniturePlacementManager : MonoBehaviour
 {
     public GameObject SpawnableFurniture;
     public ARRaycastManager raycastManager;
     public ARPlaneManager planeManager;
+    public TextMeshProUGUI debugText;
 
     private GameObject selectedFurniture = null;
     private List<ARRaycastHit> raycastHits = new List<ARRaycastHit>();
@@ -19,9 +22,9 @@ public class FurniturePlacementManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
 
             if(touch.phase == TouchPhase.Began) {
-                // if(EventSystem.current.IsPointerOverGameObject(touch.fingerId)) {
-                //     return;
-                // }
+                if(EventSystem.current.IsPointerOverGameObject(touch.fingerId)) {
+                    return;
+                }
 
                 Ray ray = Camera.main.ScreenPointToRay(touch.position);
                 RaycastHit hit;
@@ -52,14 +55,7 @@ public class FurniturePlacementManager : MonoBehaviour
     }
 
     void PlaceFurniture(Vector3 position, Quaternion rotation) {
-        GameObject item = Instantiate(SpawnableFurniture, position, rotation);
-
-        foreach (var plane in planeManager.trackables) 
-        {
-            plane.gameObject.SetActive(false);
-        }
-
-        planeManager.enabled = false;
+        Instantiate(SpawnableFurniture, position, rotation);
     }
 
     void MoveFurniture(Vector2 touchPosition) {
@@ -83,6 +79,7 @@ public class FurniturePlacementManager : MonoBehaviour
     }
 
     public void SwitchFurniture(GameObject furniture) {
+        debugText.text = "Selected item: " + furniture;
         SpawnableFurniture = furniture;
     }
 }
