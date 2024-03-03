@@ -63,7 +63,7 @@ public class FurniturePlacementManager : MonoBehaviour
             if (raycastManager.Raycast(screenPosition, hits, TrackableType.PlaneWithinPolygon))
             {
                 Pose hitPose = hits[0].pose;
-                if (selectedFurniturePrefab != null)
+                if (selectedFurniturePrefab != null && !IsPositionOccupied(screenPosition))
                 {
                     GameObject furnitureObject = Instantiate(selectedFurniturePrefab, hitPose.position, Quaternion.identity);
                     furnitureObject.transform.localScale = Vector3.zero; // Start with scale zero
