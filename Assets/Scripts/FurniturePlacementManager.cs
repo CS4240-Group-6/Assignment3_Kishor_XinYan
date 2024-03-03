@@ -66,6 +66,7 @@ public class FurniturePlacementManager : MonoBehaviour
                 if (selectedFurniturePrefab != null && !IsPositionOccupied(screenPosition))
                 {
                     GameObject furnitureObject = Instantiate(selectedFurniturePrefab, hitPose.position, Quaternion.identity);
+                    furnitureObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
                     furnitureObject.transform.localScale = Vector3.zero; // Start with scale zero
                     StartCoroutine(ScaleFurniture(furnitureObject, Vector3.one, 0.5f)); // Animate scale to Vector3.one
                     furnitureObject.tag = "Furniture"; // Tag the furniture
