@@ -191,11 +191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &223974226 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6575394721934831289, guid: fad68ca35aa61b64e9f630c8ac65ea03, type: 3}
-  m_PrefabInstance: {fileID: 6575394721448400900}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &468704255 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 726586743522030990, guid: b7c70d358e702564aaf435b02979a9d8, type: 3}
@@ -698,10 +693,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7561ad5179419a49863377b4004fa1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnableFurniture: {fileID: 223974226}
+  arCamera: {fileID: 887607353}
   raycastManager: {fileID: 921827632}
   planeManager: {fileID: 921827633}
   debugText: {fileID: 1006277657}
+  deleteButton: {fileID: 513182806}
 --- !u!1 &1006277655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1291,7 @@ PrefabInstance:
       objectReference: {fileID: 921827636}
     - target: {fileID: 600532862192528398, guid: cd86f5b74b0a7c34abc10f55bc5ee087, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchFurniture
+      value: SelectFurniturePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 600532862192528398, guid: cd86f5b74b0a7c34abc10f55bc5ee087, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1304,7 +1300,7 @@ PrefabInstance:
     - target: {fileID: 600532862192528398, guid: cd86f5b74b0a7c34abc10f55bc5ee087, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 600532862192528396, guid: cd86f5b74b0a7c34abc10f55bc5ee087, type: 3}
+      objectReference: {fileID: 100002, guid: d534d0198c237a043a8e671f0bf2859e, type: 3}
     - target: {fileID: 600532862192528398, guid: cd86f5b74b0a7c34abc10f55bc5ee087, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
@@ -1421,12 +1417,12 @@ PrefabInstance:
       objectReference: {fileID: 921827636}
     - target: {fileID: 656646801798398852, guid: 479b83e80e2e4894ea2d0526f20abee5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchFurniture
+      value: SelectFurniturePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 656646801798398852, guid: 479b83e80e2e4894ea2d0526f20abee5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 656646801798398850, guid: 479b83e80e2e4894ea2d0526f20abee5, type: 3}
+      objectReference: {fileID: 100000, guid: 71384cbc628fa864eb38a3ce9020699c, type: 3}
     - target: {fileID: 3787896791012321781, guid: 479b83e80e2e4894ea2d0526f20abee5, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1470,7 +1466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 726586743522030193, guid: b7c70d358e702564aaf435b02979a9d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchFurniture
+      value: SelectFurniturePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 726586743522030193, guid: b7c70d358e702564aaf435b02979a9d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1487,7 +1483,7 @@ PrefabInstance:
     - target: {fileID: 726586743522030193, guid: b7c70d358e702564aaf435b02979a9d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 726586743522030991, guid: b7c70d358e702564aaf435b02979a9d8, type: 3}
+      objectReference: {fileID: 100020, guid: 3afc3ad1f4025944cb7622a67af41586, type: 3}
     - target: {fileID: 726586743522030193, guid: b7c70d358e702564aaf435b02979a9d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
@@ -1617,7 +1613,7 @@ PrefabInstance:
       objectReference: {fileID: 921827636}
     - target: {fileID: 3627369028051686030, guid: 7b609d064cdc37e4788d9d6c8d13e386, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchFurniture
+      value: SelectFurniturePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 3627369028051686030, guid: 7b609d064cdc37e4788d9d6c8d13e386, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -1818,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 921827636}
     - target: {fileID: 6575394721934831291, guid: fad68ca35aa61b64e9f630c8ac65ea03, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SwitchFurniture
+      value: SelectFurniturePrefab
       objectReference: {fileID: 0}
     - target: {fileID: 6579764845524434324, guid: fad68ca35aa61b64e9f630c8ac65ea03, type: 3}
       propertyPath: m_Enabled
