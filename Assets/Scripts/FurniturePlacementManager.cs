@@ -13,11 +13,11 @@ public class FurniturePlacementManager : MonoBehaviour
     [SerializeField] private ARRaycastManager raycastManager;
     [SerializeField] private ARPlaneManager planeManager;
     [SerializeField] private TextMeshProUGUI debugText;
-    [SerializeField] private Button deleteButton;
+    public Button deleteButton;
 
     private GameObject selectedFurniturePrefab;
     private GameObject selectedFurnitureInstance;
-    private List<GameObject> placedFurnitures = new List<GameObject>(); // Keep track of all placed furniture
+    private List<GameObject> placedFurnitures = new List<GameObject>();
 
     private void Start()
     {
@@ -79,29 +79,17 @@ public class FurniturePlacementManager : MonoBehaviour
             if (selectedFurniturePrefab != null && !IsPositionOccupied(hitPose.position))
             {
                 GameObject furnitureObject = Instantiate(selectedFurniturePrefab, hitPose.position, Quaternion.identity);
-                furnitureObject.transform.localScale = Vector3.zero;
-                StartCoroutine(ScaleFurniture(furnitureObject, Vector3.one, 0.5f));
-                furnitureObject.tag = "Furniture";
-                AddRigidbody(furnitureObject);
-                placedFurnitures.Add(furnitureObject);
+                furnitureObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
+                furnitureObject.transform.localScale = Vector3.zero; // Start with scale zero
+                StartCoroutine(ScaleFurniture(furnitureObject, new Vector3(0.5f, 0.5f, 0.5f), 0.5f)); // Animate scale to Vector3.one
+                furnitureObject.tag = "Furniture"; // Tag the furniture
+                AddRigidbody(furnitureObject); // Add Rigidbody for physics interactions
+                placedFurnitures.Add(furnitureObject); // Add to list of placed furniture
 
+                selectedFurnitureInstance = furnitureObject; // Keep reference to the placed object
                 debugText.text = "Placed new furniture: " + selectedFurniturePrefab.name;
             }
         }
-    }
-
-    private void PlaceFurniture(Pose hitPose)
-    {
-        GameObject furnitureObject = Instantiate(selectedFurniturePrefab, hitPose.position, Quaternion.identity);
-        furnitureObject.transform.rotation = Quaternion.Euler(-90, 0, 0);
-        furnitureObject.transform.localScale = Vector3.zero; // Start with scale zero
-        StartCoroutine(ScaleFurniture(furnitureObject, new Vector3(0.5f, 0.5f, 0.5f), 0.5f)); // Animate scale to Vector3.one
-        furnitureObject.tag = "Furniture"; // Tag the furniture
-        AddRigidbody(furnitureObject); // Add Rigidbody for physics interactions
-        placedFurnitures.Add(furnitureObject); // Add to list of placed furniture
-
-        selectedFurnitureInstance = furnitureObject; // Keep reference to the placed object
-        debugText.text = "Placed new furniture: " + selectedFurniturePrefab.name;
     }
 
     private bool IsPositionOccupied(Vector3 position, GameObject ignoreObject = null)
@@ -136,23 +124,24 @@ public class FurniturePlacementManager : MonoBehaviour
         }
     }
 
-    private void DeleteSelectedFurniture()
+    public void DeleteSelectedFurniture()
     {
         if (selectedFurnitureInstance != null)
         {
-            placedFurnitures.Remove(selectedFurnitureInstance); // Remove from placed furniture list
             Destroy(selectedFurnitureInstance);
-            DeselectFurnitureInstance();
-            debugText.text = "Deleted furniture.";
+            placedFurnitures.Remove(selectedFurnitureInstance); // Remove from the list if needed
+            selectedFurnitureInstance = null; // Clear the selection
+            debugText.text = "Deleted furniture";
         }
     }
 
     private IEnumerator ScaleFurniture(GameObject furniture, Vector3 targetScale, float duration)
     {
+        Vector3 initialScale = furniture.transform.localScale;
         float time = 0;
         while (time < duration)
         {
-            furniture.transform.localScale = Vector3.Lerp(Vector3.zero, targetScale, time / duration);
+            furniture.transform.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
             time += Time.deltaTime;
             yield return null;
         }
@@ -162,8 +151,8 @@ public class FurniturePlacementManager : MonoBehaviour
     private void AddRigidbody(GameObject furniture)
     {
         Rigidbody rb = furniture.AddComponent<Rigidbody>();
-        rb.useGravity = false; // Set to false to prevent the furniture from falling
-        rb.mass = 100.0f; // Adjust mass as needed
+        rb.isKinematic = true;
+        rb.mass = 100.0f; 
     }
 
     private void DeselectFurnitureInstance()
