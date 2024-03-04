@@ -294,6 +294,8 @@ struct List_1_tF2FE88545EFEC788CAAE6C74EC2F78E937FCCAC3;
 struct List_1_t55B85B981AC5FD6A5358491F90FE354F78BB97DE;
 // System.Collections.Generic.List`1<UnityEngine.GUILayoutEntry>
 struct List_1_tA5BCD116CC751A5F35C7D3D7B96DC3A5D22B9C82;
+// System.Collections.Generic.List`1<UnityEngine.GameObject>
+struct List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B;
 // System.Collections.Generic.List`1<UnityEngine.TextCore.Glyph>
 struct List_1_t95DB74B8EE315F8F92B7B96D93C901C8C3F6FE2C;
 // System.Collections.Generic.List`1<UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord>
@@ -7764,21 +7766,23 @@ struct NativePtr_tAFBCEE7D503D40125DA56C3BCBC0AC3B9AE70224
 	intptr_t ___sessionPtr_1;
 };
 
-// FurniturePlacementManager/<ScaleFurniture>d__15
-struct U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C  : public RuntimeObject
+// FurniturePlacementManager/<ScaleFurniture>d__16
+struct U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF  : public RuntimeObject
 {
-	// System.Int32 FurniturePlacementManager/<ScaleFurniture>d__15::<>1__state
+	// System.Int32 FurniturePlacementManager/<ScaleFurniture>d__16::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object FurniturePlacementManager/<ScaleFurniture>d__15::<>2__current
+	// System.Object FurniturePlacementManager/<ScaleFurniture>d__16::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// UnityEngine.GameObject FurniturePlacementManager/<ScaleFurniture>d__15::furniture
+	// UnityEngine.GameObject FurniturePlacementManager/<ScaleFurniture>d__16::furniture
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___furniture_2;
-	// UnityEngine.Vector3 FurniturePlacementManager/<ScaleFurniture>d__15::targetScale
+	// UnityEngine.Vector3 FurniturePlacementManager/<ScaleFurniture>d__16::targetScale
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___targetScale_3;
-	// System.Single FurniturePlacementManager/<ScaleFurniture>d__15::duration
+	// System.Single FurniturePlacementManager/<ScaleFurniture>d__16::duration
 	float ___duration_4;
-	// System.Single FurniturePlacementManager/<ScaleFurniture>d__15::<time>5__2
-	float ___U3CtimeU3E5__2_5;
+	// UnityEngine.Vector3 FurniturePlacementManager/<ScaleFurniture>d__16::<initialScale>5__2
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___U3CinitialScaleU3E5__2_5;
+	// System.Single FurniturePlacementManager/<ScaleFurniture>d__16::<time>5__3
+	float ___U3CtimeU3E5__3_6;
 };
 
 // UnityEngine.XR.ARFoundation.MutableRuntimeReferenceImageLibraryExtensions/DeallocateJob
@@ -10888,6 +10892,8 @@ struct FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1  : pu
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___selectedFurniturePrefab_9;
 	// UnityEngine.GameObject FurniturePlacementManager::selectedFurnitureInstance
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___selectedFurnitureInstance_10;
+	// System.Collections.Generic.List`1<UnityEngine.GameObject> FurniturePlacementManager::placedFurnitures
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___placedFurnitures_11;
 };
 
 // UnityEngine.SpatialTracking.TrackedPoseDriver
@@ -14438,9 +14444,9 @@ struct YogaConfig_tE8B56F99460C291C1F7F46DBD8BAC9F0B653A345_StaticFields
 
 // UnityEngine.XR.ARCore.ARCoreSessionSubsystem/NativePtr
 
-// FurniturePlacementManager/<ScaleFurniture>d__15
+// FurniturePlacementManager/<ScaleFurniture>d__16
 
-// FurniturePlacementManager/<ScaleFurniture>d__15
+// FurniturePlacementManager/<ScaleFurniture>d__16
 
 // UnityEngine.XR.ARFoundation.MutableRuntimeReferenceImageLibraryExtensions/DeallocateJob
 
@@ -17875,15 +17881,15 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3952[4] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3953[7] = 
 {
 	static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_Device_4)),static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_PoseSource_5)),static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_PoseProviderComponent_6)),static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_TrackingType_7)),static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_UpdateType_8)),static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_UseRelativeTransform_9)),static_cast<int32_t>(offsetof(TrackedPoseDriver_t5A2DEE7957ED76932DB7460383BF09AB1CB4CCCD, ___m_OriginPose_10)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3958[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3958[7] = 
+{
+	static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___furniture_2)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___targetScale_3)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___duration_4)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___U3CinitialScaleU3E5__2_5)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__16_t09998C7C276C4467868243220A1725A383B2E4EF, ___U3CtimeU3E5__3_6)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3959[8] = 
+{
+	static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___arCamera_4)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___raycastManager_5)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___planeManager_6)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___debugText_7)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___deleteButton_8)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___selectedFurniturePrefab_9)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___selectedFurnitureInstance_10)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___placedFurnitures_11)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3961[3] = 
 {
 	static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_nTag_0)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___m_aValue_1)),static_cast<int32_t>(offsetof(ASN1_t33549D58797C9C33AA83F13AD184EAA00C584A6F, ___elist_2)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3963[6] = 
-{
-	static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C, ___furniture_2)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C, ___targetScale_3)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C, ___duration_4)),static_cast<int32_t>(offsetof(U3CScaleFurnitureU3Ed__15_tFE0F3A2D81C7B9A0F8719BE4FFE0334CD8D8871C, ___U3CtimeU3E5__2_5)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3964[7] = 
-{
-	static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___arCamera_4)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___raycastManager_5)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___planeManager_6)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___debugText_7)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___deleteButton_8)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___selectedFurniturePrefab_9)),static_cast<int32_t>(offsetof(FurniturePlacementManager_tED4AC7A529294A938328B0F1F2BD90023C2615F1, ___selectedFurnitureInstance_10)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3966[3] = 
 {
 	static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___IsTextualNodeBitmap_0)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___CanReadContentAsBitmap_1)),static_cast<int32_t>(offsetof(XmlReader_t4C709DEF5F01606ECB60B638F1BD6F6E0A9116FD_StaticFields, ___HasValueBitmap_2)),};
